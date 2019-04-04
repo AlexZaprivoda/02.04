@@ -10,7 +10,7 @@ app.use(express.static("./public"));
 
 let USERS = [];
 app.post("/reg", (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     const userName = req.body.name;
 
     if (USERS.some((user) => user.name === userName)) {
@@ -30,13 +30,26 @@ app.post("/reg", (req, res) => {
 });
 
 app.post("/msg", (req, res) => {
-    const message = req.body.message;
+    const { message, name } = req.body;
+    // console.log(message, from, to)
 
+    if (USERS.some((user) => user.name === name)) {
+        USERS.forEach((user) => user.response.json({
+            text: message,
+            from: name
+        }));
+        res.json({
+            response: true
+        });
+    } else res.json({
+        response: false
+    });
 
 });
 
 app.get("/conn/:userName", (req, res) => {
     const { userName } = req.params;
+    // console.log(req.params);
 
     for (let i = 0; i < USERS.length; i++) {
         if (USERS[i].name === userName) {
@@ -49,19 +62,20 @@ app.get("/conn/:userName", (req, res) => {
         response: false
     });
     // console.log(USERS[0].name);
-    console.log(req.params);
 });
 
 app.get("/hello", (req, res) => {
     res.send("hello!");
 });
 
-
-
 app.listen(3000, function() {
     console.log('CORS-enabled web server listening on port 3000')
 })
 
+// setInterval(() => {
+//     console.log(USERS);
+// }, 1500);
+
 //172.30.2.176:3000
-// https://github.com/AlexZaprivoda/29.3.git
 // teacher2018
+//https://github.com/AlexZaprivoda/02.04.git
