@@ -1,6 +1,7 @@
 var express = require('express')
 var cors = require('cors')
 const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 3000;
 var app = express()
 
 app.use(cors())
@@ -82,7 +83,7 @@ app.get("/hello", (req, res) => {
     res.send("hello!");
 });
 
-app.listen(3000, function() {
+app.listen(PORT, function() {
     console.log('CORS-enabled web server listening on port 3000')
 })
 
