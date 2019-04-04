@@ -12,6 +12,11 @@ let USERS = [];
 app.post("/reg", (req, res) => {
     // console.log(req.body);
     const userName = req.body.name;
+    if (!userName) {
+        return res.json({
+            response: false
+        });
+    }
 
     if (USERS.some((user) => user.name === userName)) {
         res.json({
@@ -34,17 +39,26 @@ app.post("/msg", (req, res) => {
     // console.log(message, from, to)
 
     if (USERS.some((user) => user.name === name)) {
-        USERS.forEach((user) => user.response.json({
-            text: message,
-            from: name
-        }));
+        USERS.forEach((user) => {
+            if (user.response) {
+                try {
+                    user.response.json({
+                        text: message,
+                        from: name
+                    })
+                    user.response = null;
+                } catch (e) {
+
+                }
+            }
+        });
+
         res.json({
             response: true
         });
     } else res.json({
         response: false
     });
-
 });
 
 app.get("/conn/:userName", (req, res) => {
@@ -73,7 +87,7 @@ app.listen(3000, function() {
 })
 
 // setInterval(() => {
-//     console.log(USERS);
+//     console.log(USERS.name);
 // }, 1500);
 
 //172.30.2.176:3000

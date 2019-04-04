@@ -10,7 +10,17 @@
 </head>
 
 <body>
+    <label for="userName">name</label>
+    <input name="userName" id="userName" />
+    <button>Reg</button>
+    <br />
 
+    <script defer>
+        document.querySelector("input + button").addEventListener("click", () => {
+            // console.log(userName.value)
+            // fetch(`http://localhost:3000/reg`).then()
+        });
+    </script>
 </body>
 
 </html>
