@@ -1,4 +1,81 @@
 body {
-    height: 100px;
-    background: lightsalmon;
+  margin: 0;
+}
+
+body > * {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+body > * {
+  width: 70vw;
+}
+
+#mode {
+  height: 5vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#stat {
+  height: 10vh;
+  background-color: red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#battlefield {
+  height: 60vh;
+  background-color: green;
+  position: relative;
+}
+
+.tank {
+  position: absolute;
+  width: 32px;
+  height: 60px;
+  background: linear-gradient(
+    to bottom,
+    #7d7e7d 0%,
+    #7d7e7d 25%,
+    #7d7e7d 42%,
+    #0e0e0e 100%
+  );
+  top: 450px;
+  left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15%;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  position: relative;
+  transform-origin: center;
+}
+.indicator {
+  width: 15px;
+  height: 5px;
+  border-radius: 20px;
+  background-color: red;
+  position: absolute;
+  transform: translateX(7.5px) rotate(90deg);
+}
+
+.bubble {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.custom {
+  cursor: url("./images/aim.png"), crosshair;
 }

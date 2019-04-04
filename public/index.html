@@ -1,26 +1,19 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./index.css" />
+    <title>Game</title>
 </head>
 
 <body>
-    <label for="userName">name</label>
-    <input name="userName" id="userName" />
-    <button>Reg</button>
-    <br />
-
-    <script defer>
-        document.querySelector("input + button").addEventListener("click", () => {
-            // console.log(userName.value)
-            // fetch(`http://localhost:3000/reg`).then()
-        });
-    </script>
+    <div id="mode">Demo mode</div>
+    <div id="stat"><span class="time"></span><span class="score"></span></div>
+    <div id="battlefield"></div>
 </body>
 
 </html>
